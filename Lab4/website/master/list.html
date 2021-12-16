@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} Языки программирования {% endblock %}
+
+{% block styles %}
+body {
+    background-color: orange;
+    color: black;
+    font-family: 'Calibri';
+}
+li {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+li:hover {
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+{% endblock %}
+
+{% block content %}
+    <h1 align="center">Список языков программирования</h1>
+    <ol>
+        {% for lang in languages %}
+        <li><a href="{% url 'detail' lang.id %}">{{lang.name}}</a></li>
+        {% endfor %}
+    </ol>
+{% endblock %}

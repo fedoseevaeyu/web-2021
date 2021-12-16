@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} {{language.name}} {% endblock %}
+
+{% block styles %}
+body {
+    background-color: orange;
+    color: black;
+    font-family: 'Calibri';
+}
+
+table {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-size: 24px;
+    background-color: #ff9900;
+}
+
+td {
+    padding: 5px 20px 5px 20px;
+}
+
+#back{
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+{% endblock %}
+
+{% block content %}
+    <h1 align="center">Информация о языке программирования</h1>
+    <table border="1 solid black">
+        <tr>
+            <th>Название</th>
+            <th>Иконка</th>
+            <th>Описание</th>
+        </tr>
+        <tr>
+            <td align="center">{{language.name}}</td>
+            <td align="center">
+                {% if language.name == 'C++' %}
+                    <img src="{% static 'C++.png' %}", height='50'>
+                {% elif language.name == 'Python' %}
+                    <img src="{% static 'Python.png' %}", height='50'>
+                {% elif language.name == 'Java' %}
+                    <img src="{% static 'Java.png' %}", height='50'>
+                {% else %}
+                    <img src="", alt="картинка">
+                {% endif %}
+            </td>
+            <td align='justify'>
+                {{language.description}}
+            </td>
+        </tr>
+    </table>
+    <div id="back">
+        <a href='../'><img src="{% static 'Arrow.png' %}", height='50'></a>
+    </div>
+{% endblock %}

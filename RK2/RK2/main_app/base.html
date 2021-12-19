@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>
+        {% block title %} {% endblock %}
+    </title>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <div>
+        <a style='margin: 5px;' href='/'>Главная</a>
+        <a style='margin: 5px;' href='/student'>Детали</a>
+        <a style='margin: 5px;' href='/class'>Производители</a>
+        <a style='margin: 5px;' href='/report'>Отчёт</a>
+    </div>
+    {% block content %} {% endblock %}
+</body>
+</html>

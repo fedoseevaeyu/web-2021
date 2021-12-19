@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{entity}}
+{% endblock %}
+
+{% block content %}
+<h2>Сущность <i>{{entity}}</i></h2>
+
+{% if entity == 'Supplier' %}
+<a href='/supplier/create'>Добавить элемент</a>
+{% endif %}
+
+{% if entity == 'Detail' %}
+<a href='/detail/create'>Добавить элемент</a>
+{% endif %}
+
+<p>Список элементов:</p>
+<ul>
+    {% for elem in objects %}
+    <hr>
+        <li>
+            {% if entity == 'Supplier' %}
+                {{elem.name}}{{elem.country}}<br>
+                <a href='{% url "sup_update" elem.id_class %}'>Изменить</a>
+                <a href='{% url "sup_delete" elem.id_class %}'>Удалить</a>
+            {% endif %}
+
+            {% if entity == 'Detail' %}
+                {{elem.name}} {{elem.material}}<br>
+                <a href='{% url "detail_update" elem.id_det %}'>Изменить</a>
+                <a href='{% url "detail_delete" elem.id_det %}'>Удалить</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+    <hr>
+</ul>
+{% endblock %}

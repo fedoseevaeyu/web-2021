@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Детали
+{% endblock %}
+
+{% block content %}
+<h2>Список всех деталей:</h2>
+<ul>
+    {% for det in details %}
+        <hr>
+        <li>
+            <div>
+                Название: {{det.name}} <br>
+                Материал: {{det.material}} <br>
+            </div>
+        </li>
+    {% endfor %}
+    <hr>
+</ul>
+<i>Время формирования отчёта: </i>{{date}}
+{% endblock %}
